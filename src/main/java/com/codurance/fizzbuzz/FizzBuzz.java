@@ -2,9 +2,18 @@ package com.codurance.fizzbuzz;
 
 class FizzBuzz {
     String convert(int number) {
-        if (number % 15 == 0) return "FizzBuzz";
-        if (number % 5 == 0) return "Buzz";
-        if (number % 3 == 0) return "Fizz";
-        return String.valueOf(number);
+        String words = "";
+
+        if (multipleOf(3, number)) words += "Fizz";
+        if (multipleOf(5, number)) words += "Buzz";
+
+        if (words.isEmpty())
+            return String.valueOf(number);
+        return words;
     }
+
+    private boolean multipleOf(int factor, int number) {
+        return number % factor == 0;
+    }
+
 }
