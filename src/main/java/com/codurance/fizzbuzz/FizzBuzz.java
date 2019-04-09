@@ -1,18 +1,18 @@
 package com.codurance.fizzbuzz;
 
 class FizzBuzz {
-    String convert(int number) {
-        String words = "";
+    private static final String BUZZ = "Buzz";
+    private static final String FIZZ = "Fizz";
 
-        if (multipleOf(3, number)) words += "Fizz";
-        if (multipleOf(5, number)) words += "Buzz";
+    String convert(int i) {
+        if (divisibleBy(3, i)) return FIZZ;
+        if (divisibleBy(5, i)) return BUZZ;
+        if (divisibleBy(15, i)) return FIZZ + BUZZ;
 
-        if (words.isEmpty())
-            return String.valueOf(number);
-        return words;
+        return String.valueOf(i);
     }
 
-    private boolean multipleOf(int factor, int number) {
+    private boolean divisibleBy(int factor, int number) {
         return number % factor == 0;
     }
 
